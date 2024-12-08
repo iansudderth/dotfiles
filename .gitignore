@@ -1,5 +1,15 @@
 # gitignore for dotfiles and configs
-/*
-!.gitignore
-!.config/*
 
+.cache/
+.cargo/
+.config/
+!.config/nvim/
+
+.local/
+.mozilla/
+.npm/
+.rustup/
+.var/
+.steam/
+.volta/
+wallpapers/
