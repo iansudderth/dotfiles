@@ -1,3 +1,5 @@
 # gitignore for dotfiles and configs
-*/
-*
+/*
+!.gitignore
+!.config/*
+
