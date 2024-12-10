@@ -30,5 +30,5 @@ normal = { family = "GeistMono NF", style = "Regular" }
 
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/tender.toml"
+    "~/.config/alacritty/themes/themes/autumn.toml"
 ]
