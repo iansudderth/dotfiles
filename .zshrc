@@ -104,3 +104,62 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export TERM=xterm-256color
+
+# fzf integration
+source <(fzf --zsh)
+
+# Use fd and fzf to get the args to a command.
+# Works only with zsh
+# Examples:
+# f mv # To move files. You can write the destination after selecting the files.
+# f 'echo Selected:'
+# f 'echo Selected music:' --extension mp3
+# fm rm # To rm files in current directory
+f() {
+    sels=( "${(@f)$(fd "${fd_default[@]}" "${@:2}"| fzf)}" )
+    test -n "$sels" && print -z -- "$1 ${sels[@]:q:q}"
+}
+
+# Like f, but not recursive.
+fm() f "$@" --max-depth 1
+
+# Deps
+alias fz="fzf-noempty --bind 'tab:toggle,shift-tab:toggle+beginning-of-line+kill-line,ctrl-j:toggle+beginning-of-line+kill-line,ctrl-t:top' --color=light -1 -m"
+fzf-noempty () {
+	local in="$(</dev/stdin)"
+	test -z "$in" && (
+		exit 130
+	) || {
+		ec "$in" | fzf "$@"
+	}
+}
+ec () {
+	if [[ -n $ZSH_VERSION ]]
+	then
+		print -r -- "$@"
+	else
+		echo -E -- "$@"
+	fi
+}
+
+# use to fuzzy find applications and functions
+fa() {
+	_app=$( compgen -c | fzf --preview="" )
+	print -z "$_app "
+}
+
+export FZF_DEFAULT_OPTS='--preview="bat --color=always {}"'
+
+alias cat="bat --color=always"
+
+alias ls="eza --color=always --long --git --icons=always --no-time --no-user --no-permissions"
+
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
+
+eval "$(zoxide init zsh)"
+alias cd="z"
+
+alias ff="yazi"
+
+export EDITOR="nvim"

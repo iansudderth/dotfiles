@@ -939,6 +939,28 @@ require("lazy").setup({
 		},
 		opts = {},
 	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		version = "*",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+		cmd = "Neotree",
+		keys = {
+			{ "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
+		},
+		opts = {
+			filesystem = {
+				window = {
+					mappings = {
+						["\\"] = "close_window",
+					},
+				},
+			},
+		},
+	},
 	-- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
 	-- init.lua. If you want these files, they are in the repository, so you can just download them and
 	-- place them in the correct locations.
@@ -952,7 +974,7 @@ require("lazy").setup({
 	require("kickstart.plugins.indent_line"),
 	require("kickstart.plugins.lint"),
 	require("kickstart.plugins.autopairs"),
-	require("kickstart.plugins.neo-tree"),
+	-- require("kickstart.plugins.neo-tree"),
 	require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -1002,3 +1024,5 @@ vim.keymap.set("n", "<leader>.", function()
 end, {
 	desc = "Show Local Keymap",
 })
+
+vim.keymap.set("n", "<leader><Tab>", "<cmd>tabNext<CR>", { desc = "Next Tab" })
