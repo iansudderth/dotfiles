@@ -163,3 +163,6 @@ alias cd="z"
 alias ff="yazi"
 
 export EDITOR="nvim"
+
+
+eval "$(starship init zsh)"
