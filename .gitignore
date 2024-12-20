@@ -13,3 +13,17 @@
 .steam/
 .volta/
 wallpapers/
+.docker
+.kube
+.minikube
+.oh-my-zsh
+.pki/nssdb
+.pyenv
+.tmux/plugins/tpm
+Documents
+Downloads
+go/pkg/mod
+images
+yay-bin
+.atuin/bin
+.deno

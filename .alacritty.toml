@@ -32,3 +32,9 @@ normal = { family = "GeistMono NF", style = "Regular" }
 import = [
     "~/.config/alacritty/themes/themes/autumn.toml"
 ]
+
+[keyboard]
+bindings = [
+    { key="ArrowUp", mods="Control|Shift", action="ScrollLineUp" },
+    { key="ArrowDown", mods="Control|Shift", action="ScrollLineDown" }
+]
