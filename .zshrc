@@ -125,7 +125,7 @@ alias diff="difft"
 
 alias reload-shell="source $HOME/.zshrc"
 
-. "$HOME/.atuin/bin/env"
+# . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
 
@@ -135,3 +135,7 @@ alias lzk="k9s"
 
 # theme for clipboard
 export CLIPBOARD_THEME=ansi
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
