@@ -2,36 +2,12 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
+#oh-my-zsh config
 HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
 zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
 	zsh-autosuggestions
@@ -39,27 +15,60 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh/"
+#######################################
+# ENV
+#######################################
 
 export TERM=xterm-256color
+export EDITOR="nvim"
 
-# fzf integration
-source <(fzf --zsh)
+export FZF_DEFAULT_OPTS='--preview="bat --color=always {}"'
+
+. "$HOME/.atuin/bin/env"
+
+export PATH="$PATH:$HOME/.deno/bin/"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+export CLIPBOARD_THEME=ansi
+
+#######################################
+# ALIASES
+#######################################
+
+# quick edit for configs
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh/"
+alias reload-shell="source $HOME/.zshrc"
+
+# use bat for cat
+alias cat="bat --color=always"
+
+# use eza for ls & la
+alias ls="eza --color=always --long --git --icons=always --no-time --no-user --no-permissions"
+
+# use zoxide for cd
+alias cd="z"
+
+# find files with yazi
+alias ff="yazi"
+
+# use difft for diff
+alias diff="difft"
+
+# lazy crew
+alias lzd="lazydocker"
+alias lzg="lazygit"
+alias lzk="k9s"
+
+# please run last command with sudo
+alias please="sudo !!"
+
+#######################################
+# Funcs
+#######################################
+
 
 # Use fd and fzf to get the args to a command.
 # Works only with zsh
@@ -101,41 +110,25 @@ fa() {
 	print -z "$_app "
 }
 
-export FZF_DEFAULT_OPTS='--preview="bat --color=always {}"'
+#######################################
+# Config
+#######################################
 
-alias cat="bat --color=always"
+# fzf integration
+source <(fzf --zsh)
 
-alias ls="eza --color=always --long --git --icons=always --no-time --no-user --no-permissions"
-
+# thefuck setup
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 
+# zoxide to remember dirs
 eval "$(zoxide init zsh)"
-alias cd="z"
 
-alias ff="yazi"
-
-export EDITOR="nvim"
-
-
+# starship for pretty prompts
 eval "$(starship init zsh)"
 
-alias diff="difft"
-. "/home/iansudderth/.deno/env"
-
-alias reload-shell="source $HOME/.zshrc"
-
-. "$HOME/.atuin/bin/env"
-
+# atuin for command history
 eval "$(atuin init zsh)"
 
-alias lzd="lazydocker"
-alias lzg="lazygit"
-alias lzk="k9s"
-
-# theme for clipboard
-export CLIPBOARD_THEME=ansi
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# setup pyenv
 eval "$(pyenv init - zsh)"
