@@ -24,7 +24,7 @@ export EDITOR="nvim"
 
 export FZF_DEFAULT_OPTS='--preview="bat --color=always {}"'
 
-. "$HOME/.atuin/bin/env"
+export PATH="$HOME/.atuin/bin:$PATH"
 
 export PATH="$PATH:$HOME/.deno/bin/"
 
@@ -32,6 +32,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
 export CLIPBOARD_THEME=ansi
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 #######################################
 # ALIASES
