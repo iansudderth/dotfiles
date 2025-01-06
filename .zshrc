@@ -65,6 +65,13 @@ alias lzk="k9s"
 # please run last command with sudo
 alias please="sudo !!"
 
+#global just
+alias gjust="just --global-justfile"
+
+#just find
+alias justf="just --choose"
+alias gjustf="gjust --choose"
+
 #######################################
 # Funcs
 #######################################
@@ -109,6 +116,7 @@ fa() {
 	_app=$( compgen -c | fzf --preview="" )
 	print -z "$_app "
 }
+
 
 #######################################
 # Config
