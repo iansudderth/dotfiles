@@ -50,6 +50,7 @@ alias cat="bat --color=always"
 
 # use eza for ls & la
 alias ls="eza --color=always --long --git --icons=always --no-time --no-user --no-permissions"
+alias la="ls -la"
 
 # use zoxide for cd
 alias cd="z"
