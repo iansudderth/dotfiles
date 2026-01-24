@@ -1,6 +1,9 @@
 return {
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
+  
+  -- add gruvbox-material
+  { "sainnhe/gruvbox-material" },
 
   {
     "HiPhish/rainbow-delimiters.nvim",
