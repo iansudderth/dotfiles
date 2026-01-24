@@ -144,3 +144,11 @@ eval "$(atuin init zsh)"
 
 # setup pyenv
 eval "$(pyenv init - zsh)"
+
+
+#######################################
+# Secrets
+#######################################
+
+[ -f "$HOME/.secrets.env" ] && source "$HOME/.secrets.env"
+
