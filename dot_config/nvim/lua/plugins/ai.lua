@@ -39,30 +39,16 @@ return {
         },
       },
       acp_providers = {
-        ["opencode-haiku"] = {
+        ["opencode"] = {
           command = "opencode",
-          args = { "acp", "--model", "anthropic/claude-haiku-4-5" },
-        },
-        ["opencode-sonnet"] = {
-          command = "opencode",
-          args = { "acp", "--model", "anthropic/claude-sonnet-4-5" },
-        },
-        ["opencode-opus"] = {
-          command = "opencode",
-          args = { "acp", "--model", "anthropic/claude-opus-4-5" },
+          args = { "acp" },
         },
       },
     },
     keys = {
       { "<leader>ae", "<cmd>AvanteEdit<CR>", desc = "Edit Avante" },
       { "<leader>apr", "<cmd>AvanteSwitchProvider haiku<CR>", desc = "Switch Avante Provider to openrouter" },
-      { "<leader>aph", "<cmd>AvanteSwitchProvider opencode-haiku<CR>", desc = "Switch ACP Provider to opencode-haiku" },
-      {
-        "<leader>aps",
-        "<cmd>AvanteSwitchProvider opencode-sonnet<CR>",
-        desc = "Switch ACP Provider to opencode-sonnet",
-      },
-      { "<leader>apo", "<cmd>AvanteSwitchProvider opencode-opus<CR>", desc = "Switch ACP Provider to opencode-opus" },
+      { "<leader>apo", "<cmd>AvanteSwitchProvider opencode<CR>", desc = "Switch ACP Provider to opencode" },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
