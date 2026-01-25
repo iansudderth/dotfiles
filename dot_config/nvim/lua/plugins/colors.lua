@@ -1,9 +1,12 @@
 return {
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
-  
+
   -- add gruvbox-material
   { "sainnhe/gruvbox-material" },
+
+  -- add kanagawa
+  { "rebelot/kanagawa.nvim" },
 
   {
     "HiPhish/rainbow-delimiters.nvim",
@@ -13,7 +16,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "gruvbox-material",
     },
   },
 }
