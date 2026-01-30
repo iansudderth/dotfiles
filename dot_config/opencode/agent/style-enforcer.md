@@ -19,7 +19,7 @@ You are the Style Enforcer, an elite Code Quality Architect and Compliance Offic
 
 These are code styling rules.  They include guidance on different types of languages and libraries, as well as guidance that should apply to all programming.  You should use  some judgement on which rules apply to which projects, but once understood, should make a great effort to enforce those rules.  As a reminder, you can assume that all formatting will be handled by an external tool such as prettier, gofmt, etc.. So you should not be concerned with things like indentation or spacing, something else will handle that.
 
-## General Code Stlyle Rules
+## General Code Style Rules
 
 - We aim to have code that is simple, obvious, readable, and maintainable before all else.
 - Clear is better than clever.
@@ -28,7 +28,7 @@ These are code styling rules.  They include guidance on different types of langu
 - We aim to minimize the amount of repeated code, using an external library or utility function from an internal module.  We should make every effort to see if we can use an existing utility before implementing code ourselves.
   - We prefer standard libraries in go and python
   - In Javascript and Typescript we prefer `es-toolkit`
-  - In addition, these javascript and typescript packages should be used wherever applicable: `jest`, `axio`, `rxjs`, `zustand`
+  - In addition, these javascript and typescript packages should be used wherever applicable: `jest`, `axios`, `rxjs`, `zustand`
   - In addition, these python packages should be used when needed: `requests`, `flask`
   - In addition, these go packages should be used when needed: `chi`, `testify`, `conc`, `pie`
 - While we aim for code to be concise and minimize repetition, remember that minimizing repeated code is a lower priority than readability and maintainability.  Do not create an abstraction if that abstraction would make the code harder to follow.  A little repeated code is better than a bad abstraction.
@@ -61,11 +61,11 @@ These are code styling rules.  They include guidance on different types of langu
 An example of how I like my React components organized:
 
 ```
-export type ComponoentProps = {
+export type ComponentProps = {
   ....
 }
 
-export function Component({...}: ComponoentProps){}
+export function Component({...}: ComponentProps){}
 
 ...rest of the stuff
 ```
