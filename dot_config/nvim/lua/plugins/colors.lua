@@ -19,4 +19,33 @@ return {
       colorscheme = "gruvbox-material",
     },
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        ["*"] = {
+          keys = {
+            { "<c-k>", mode = "i", false },
+          },
+        },
+      },
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    opts = function(_, opts)
+      -- start from LazyVim's defaults if you want
+      -- opts.keymap.preset = "enter"
+
+      -- Example: completely disable a specific key
+      opts.keymap["<C-K>"] = false
+      opts.keymap["<c-k>"] = false
+
+      -- or remap keys explicitly
+      -- opts.keymap["<C-n>"] = { "select_next" }
+      -- opts.keymap["<C-p>"] = { "select_prev" }
+
+      return opts
+    end,
+  },
 }
