@@ -102,27 +102,27 @@ return {
       behaviour = {
         auto_set_keymaps = true,
       },
-      provider = "haiku",
+      provider = "openrouter_haiku",
       providers = {
-        deepseek = {
+        openrouter_deepseek = {
           __inherited_from = "openai",
           endpoint = "https://openrouter.ai/api/v1",
           api_key_name = "OPENROUTER_API_KEY",
           model = "deepseek/deepseek-v3.2",
         },
-        haiku = {
+        openrouter_haiku = {
           __inherited_from = "openai",
           endpoint = "https://openrouter.ai/api/v1",
           api_key_name = "OPENROUTER_API_KEY",
           model = "anthropic/claude-haiku-4.5",
         },
-        sonnet = {
+        openrouter_sonnet = {
           __inherited_from = "openai",
           endpoint = "https://openrouter.ai/api/v1",
           api_key_name = "OPENROUTER_API_KEY",
           model = "anthropic/claude-sonnet-4.5",
         },
-        opus = {
+        openrouter_opus = {
           __inherited_from = "openai",
           endpoint = "https://openrouter.ai/api/v1",
           api_key_name = "OPENROUTER_API_KEY",
@@ -133,6 +133,14 @@ return {
         ["opencode"] = {
           command = "opencode",
           args = { "acp" },
+        },
+      },
+      input = {
+        provider = "snacks",
+        provider_opts = {
+          -- Additional snacks.input options
+          title = "Avante Input",
+          icon = " ",
         },
       },
     },
