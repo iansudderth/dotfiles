@@ -90,4 +90,51 @@ return {
   --   },
   -- },
   -- { "Kaiser-Yang/blink-cmp-avante" },
+  --
+  --
+  {
+    "yetone/avante.nvim",
+    opts = {
+
+      selection = {
+        hint_display = "none",
+      },
+      behaviour = {
+        auto_set_keymaps = true,
+      },
+      provider = "haiku",
+      providers = {
+        deepseek = {
+          __inherited_from = "openai",
+          endpoint = "https://openrouter.ai/api/v1",
+          api_key_name = "OPENROUTER_API_KEY",
+          model = "deepseek/deepseek-v3.2",
+        },
+        haiku = {
+          __inherited_from = "openai",
+          endpoint = "https://openrouter.ai/api/v1",
+          api_key_name = "OPENROUTER_API_KEY",
+          model = "anthropic/claude-haiku-4.5",
+        },
+        sonnet = {
+          __inherited_from = "openai",
+          endpoint = "https://openrouter.ai/api/v1",
+          api_key_name = "OPENROUTER_API_KEY",
+          model = "anthropic/claude-sonnet-4.5",
+        },
+        opus = {
+          __inherited_from = "openai",
+          endpoint = "https://openrouter.ai/api/v1",
+          api_key_name = "OPENROUTER_API_KEY",
+          model = "anthropic/claude-opus-4.5",
+        },
+      },
+      acp_providers = {
+        ["opencode"] = {
+          command = "opencode",
+          args = { "acp" },
+        },
+      },
+    },
+  },
 }
