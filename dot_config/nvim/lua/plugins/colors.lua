@@ -48,4 +48,23 @@ return {
       return opts
     end,
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    optional = true,
+    opts = {
+      file_types = { "markdown", "Avante" },
+    },
+    ft = { "markdown", "Avante" },
+  },
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    specs = { "Kaiser-Yang/blink-cmp-avante" },
+    opts = {
+      sources = {
+        default = { "avante" },
+        providers = { avante = { module = "blink-cmp-avante", name = "Avante" } },
+      },
+    },
+  },
 }
