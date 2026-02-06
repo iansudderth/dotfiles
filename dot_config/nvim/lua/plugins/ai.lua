@@ -7,6 +7,9 @@ return {
       ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
       { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
     },
+    opts = {
+      auto_focus = true,
+    },
     config = function()
       ---@type opencode.Opts
       vim.g.opencode_opts = {
@@ -18,12 +21,12 @@ return {
 
       -- Recommended/example keymaps.
       vim.keymap.set("n", "<leader>a", function() end, { desc = "opencode" })
-      vim.keymap.set({ "n", "x" }, "<leader>aa", function()
+      vim.keymap.set({ "n", "x" }, "<leader>ap", function()
         require("opencode").ask("@this: ", { submit = true })
       end, { desc = "Ask opencode…" })
-      vim.keymap.set({ "n", "x" }, "<leader>ax", function()
+      vim.keymap.set({ "n", "x" }, "<leader>aa", function()
         require("opencode").select()
-      end, { desc = "Execute opencode action…" })
+      end, { desc = "Opencode Command Pallette" })
       vim.keymap.set({ "n", "t" }, "<leader>at", function()
         require("opencode").toggle()
       end, { desc = "Toggle opencode" })
@@ -35,12 +38,19 @@ return {
         return require("opencode").operator("@this ") .. "_"
       end, { desc = "Add line to opencode", expr = true })
 
+      vim.keymap.set({ "n", "x" }, "<leader>an", function()
+        return require("opencode").command("session.new")
+      end, { desc = "New Session", expr = true })
+      vim.keymap.set({ "n", "x" }, "<leader>as", function()
+        return require("opencode").select_session()
+      end, { desc = "Select Session", expr = true })
+
       vim.keymap.set("n", "<S-C-u>", function()
         require("opencode").command("session.half.page.up")
       end, { desc = "Scroll opencode up" })
       vim.keymap.set("n", "<S-C-d>", function()
         require("opencode").command("session.half.page.down")
       end, { desc = "Scroll opencode down" })
-end,
+    end,
   },
 }
