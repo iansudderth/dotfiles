@@ -73,6 +73,10 @@ return {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
       },
+      -- Disable inlay hints by default
+      inlay_hints = {
+        enabled = false,
+      },
     },
   },
 
@@ -193,5 +197,15 @@ return {
         "flake8",
       },
     },
+  },
+
+  -- Disable inlay hints by default
+  {
+    "neovim/nvim-lspconfig",
+    opts = function(_, opts)
+      -- Disable inlay hints globally for all servers
+      vim.lsp.inlay_hint.enable(false)
+      return opts
+    end,
   },
 }

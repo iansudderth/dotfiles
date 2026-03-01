@@ -5,7 +5,7 @@
 local opt = vim.opt
 opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus" -- Sync with system clipboard
 opt.relativenumber = false -- don't show relative line numbers
-opt.wrap = false
+opt.wrap = true
 
 -- Gruvbox configuration
 vim.g.gruvbox_contrast_dark = "medium"
