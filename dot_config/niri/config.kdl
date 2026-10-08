@@ -24,6 +24,12 @@ window-rule {
 }
 
 
+input {
+  touchpad {
+    click-method "clickfinger"
+  }
+}
+
 
 layout {
     // center-focused-column "on-overflow"
