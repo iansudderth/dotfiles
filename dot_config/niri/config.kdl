@@ -2,9 +2,14 @@ spawn-at-startup "noctalia"
 // spawn-at-startup "niriusd"
 
 
+environment {
+    QT_QPA_PLATFORMTHEME "qt6ct"
+}
+
+
 window-rule {
   // Rounded corners for a modern look.
-  geometry-corner-radius 10
+  geometry-corner-radius 8
 
   // Clips window contents to the rounded corner boundaries.
   clip-to-geometry true
@@ -21,8 +26,8 @@ window-rule {
 
 
 layout {
-    gaps 10
-    center-focused-column "on-overflow"
+    // center-focused-column "on-overflow"
+    gaps 4
 
     preset-column-widths {
         proportion 0.33333
@@ -33,7 +38,7 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 2
+        width 1
         active-color "#89b4fa"
         inactive-color "#45475a"
     }
