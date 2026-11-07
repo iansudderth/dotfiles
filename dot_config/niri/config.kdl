@@ -1,7 +1,7 @@
 spawn-at-startup "noctalia"
 // spawn-at-startup "niriusd"
 
-
+// prefer-no-csd
 environment {
     QT_QPA_PLATFORMTHEME "qt6ct"
 }
@@ -9,10 +9,32 @@ environment {
 
 window-rule {
   // Rounded corners for a modern look.
-  geometry-corner-radius 8
+  geometry-corner-radius 4
 
   // Clips window contents to the rounded corner boundaries.
   clip-to-geometry true
+
+
+    opacity 1.0
+    draw-border-with-background false
+
+
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="^kitty$"
+
+    
+    opacity 1.0
+    draw-border-with-background false
+
+
+    background-effect {
+        blur true
+    }
 }
 
 // Floating Noctalia settings window.
@@ -84,7 +106,9 @@ binds {
     XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
     XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
 
-    Mod+Return { spawn "foot"; }
+    Mod+Return { spawn "kitty"; }
+    Mod+N {spawn "dolphin"; }
+    Mod+W {spawn "brave"; }
     // Mod+D { spawn "fuzzel"; }
     // Mod+Space { spawn "fuzzel"; }
 
@@ -213,7 +237,7 @@ binds {
     // Split the bottom window out into its own column.
     Mod+Period { expel-window-from-column; }
 
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+T { toggle-column-tabbed-display; }
 
     // ---- Size and layout ----
 
