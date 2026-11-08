@@ -1,0 +1,141 @@
+[bar.default]
+background_opacity = 0.74999998323619366
+center = []
+concave_edge_corners = false
+end = [
+    "divider",
+    "notifications",
+    "clipboard",
+    "screenshot",
+    "divider",
+    "tray",
+    "divider",
+    "network",
+    "bluetooth",
+    "divider",
+    "volume",
+    "brightness",
+    "divider",
+    "power_profile",
+    "battery",
+    "divider",
+    "clock"
+]
+margin_edge = 2
+shadow = false
+start = [
+    "control-center",
+    "launcher",
+    "divider",
+    "session",
+    "divider",
+    "settings",
+    "wallpaper",
+    "keybinds",
+    "divider",
+    "taskbar"
+]
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 823.0
+    cy = 847.0
+    output = "eDP-1"
+    placement_height = 1029.0
+    placement_width = 1646.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[plugins]
+enabled = [ "kenn/keybind-cheatsheet" ]
+
+[theme]
+builtin = "Kanagawa"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "faithful"
+
+    [theme.templates]
+    builtin_ids = [ "alacritty", "btop", "gtk3", "gtk4", "helix", "kcolorscheme", "kitty", "niri", "qt" ]
+    community_ids = [
+        "opencode",
+        "brave",
+        "discord",
+        "gimp",
+        "lazyvim",
+        "libreoffice",
+        "micro",
+        "neovim",
+        "steam",
+        "zellij",
+        "gruvbox-plus-icons",
+        "bat",
+        "fzf",
+        "lazydocker",
+        "lazygit",
+        "starship",
+        "yazi"
+    ]
+
+        [theme.templates.user.palette_creator_live]
+        input_path = "/home/iansudderth/.local/state/noctalia/plugins/materialized/community/palette-creator/templates/live-snapshot.tpl"
+        output_path = "/home/iansudderth/.local/state/noctalia/plugin-data/kyle-palette-creator/live-snapshot.json"
+
+[wallpaper]
+directory = "/home/iansudderth/Pictures/wallpapers"
+
+    [wallpaper.default]
+    path = "/home/iansudderth/Pictures/wallpapers/wallpaperswide.com-the-starry-night-wallpaper-2560x1600.jpg"
+
+    [wallpaper.last]
+    path = "/home/iansudderth/Pictures/wallpapers/wallpaperswide.com-the-starry-night-wallpaper-2560x1600.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/iansudderth/Pictures/wallpapers/wallpaperswide.com-the-starry-night-wallpaper-2560x1600.jpg"
+
+[widget.divider]
+color = "outline_variant"
+text = "|"
+type = "text"
+
+[widget.keybinds]
+type = "kenn/keybind-cheatsheet:keybinds"
+
+[widget.media]
+enabled = false
+
+[widget.taskbar]
+group_by_workspace = true
+minimal = true
+workspace_label_placement = "inside"
+
+[widget.workspaces]
+style = "focus_hint"
